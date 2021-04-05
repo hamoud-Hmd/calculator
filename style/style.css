@@ -1,0 +1,124 @@
+:root {
+	--dark-color: #333333;
+	--light-color: #a5a6a5;
+	--primary-color: #ff9f0a;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+.contanier {
+	max-width: 920px;
+	margin: auto;
+	overflow: hidden;
+}
+.bg-dark {
+	background: var(--dark-color);
+	color: #fff;
+}
+
+.bg-primary {
+	background: var(--primary-color);
+	color: #fff;
+}
+
+.bg-light {
+	background: var(--light-color);
+	color: #000;
+}
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	line-height: 1.6;
+	background-color: #f4f4f4;
+}
+
+.calculator-content {
+	background: #000;
+	position: fixed;
+	left: auto;
+	color: #fff;
+	width: 375px;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	border-radius: 30px;
+	padding: 1.7rem;
+}
+
+.calculator-screen {
+	height: 300px;
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.calculator-screen > h3 {
+	font-size: 4.4rem;
+	font-weight: 300;
+	position: absolute;
+	bottom: 0;
+	right: 5px;
+}
+
+.calculator-numbers {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: repeat(5, 1fr);
+	grid-gap: 1rem;
+	justify-content: center;
+	align-items: center;
+}
+
+.calculator-numbers .num:not(div[data-key='Numpad0']) {
+	width: 70px;
+	height: 70px;
+	line-height: 70px;
+	border-radius: 50%;
+	text-align: center;
+	transition: transform 0.1s ease-in-out;
+}
+.calculator-numbers .num > kbd {
+	font-size: 1.8rem;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: bold;
+}
+
+div[data-key='KeyM'] > kbd {
+	position: relative;
+}
+
+div[data-key='KeyM'] > kbd span:first-of-type {
+	font-size: 1rem;
+	position: absolute;
+	bottom: -13px;
+	left: -8px;
+}
+div[data-key='KeyM'] > kbd span:last-of-type {
+	font-size: 1.4rem;
+	position: absolute;
+	top: -13px;
+	right: -5px;
+}
+div[data-key='Numpad0'] {
+	grid-column: 1 / span 2;
+	width: 150px;
+	line-height: 65px;
+	padding-left: 1rem;
+	text-align: start;
+	border-radius: 30px;
+	height: 65px;
+	transition: transform 0.1s ease-in-out;
+}
+
+.calculator-numbers .num:hover {
+	cursor: pointer;
+	opacity: 0.8;
+}
+.clicked {
+	transform: scale(0.9);
+	opacity: 0.9;
+}
